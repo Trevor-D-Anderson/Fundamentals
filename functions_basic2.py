@@ -35,3 +35,12 @@ def valuesGreater(num):
         return newNum
 # print(valuesGreater([3,2,1,1,5,6]))
 # print(valuesGreater([3]))
+
+# 5. This Length, That Value
+def thisThat(num1, num2):
+    newVal = []
+    for x in range(num1):
+        newVal.append(num2)
+    return newVal
+# print(thisThat(4,7))
+# print(thisThat(6,2))
