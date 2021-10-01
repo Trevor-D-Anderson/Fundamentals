@@ -34,35 +34,37 @@ class BankAccount:
             sum+=1
 
 class User:
-    def __init__(self, firstName, lastName):
+    def __init__(self, firstName, lastName, interest, balance, type = "savings"):
         self.firstName = firstName
         self.lastName = lastName
-        self.checkingBalance = 0
-        self.savingsBalance = 0
+        if type == "checking":
+            self.checking = BankAccount(interest,balance)
+        else:
+            self.savings = BankAccount(interest, balance)
 # Deposit
     def depositChecking(self, amount):
-        self.checkingBalance += amount
+        self.checking += amount
         print(f"You have deposited ${amount}")
         return self
 # Withdrawl
     def withdrawlChecking(self, amount):
-        self.checkingBalance -= amount
+        self.checking -= amount
         print(f"you have withdrawn ${amount}")
         return self
 # Transfer checking to Savings
     def transferCheckingToSavings(self, amount):
-        self.checkingBalance -= amount
-        self.savingsBalance += amount
-        print(f"{self.firstName} has ${self.checkingBalance} in Checking and ${self.savingsBalance} in Savings.")
+        self.checking -= amount
+        self.savings += amount
+        print(f"{self.firstName} has ${self.checking} in Checking and ${self.savings} in Savings.")
         return self
 # Display Balance
     def displayBalance(self):
-        print(f"You have in Checking: ${self.checkingBalance}")
-        print(f"You have in Savings: ${self.savingsBalance}")
+        print(f"You have in Checking: ${self.checking}")
+        print(f"You have in Savings: ${self.savings}")
         return self
 # User Transfer
     def userTransfer(self, user, amount):
-        self.checkingBalance -= amount
-        user.checkingBalance += amount
+        self.checking -= amount
+        user.checking += amount
         print(f"{self.firstName} has transferred ${amount} to {user.firstName}")
         return self
