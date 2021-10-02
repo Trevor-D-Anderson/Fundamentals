@@ -70,6 +70,6 @@ class User:
 
 
 trevor = User("Trevor", "Anderson", 500, 10000)
-trevor.displayBalance()
-trevor.yield_interest("savings")
-trevor.displayBalance()
+hannah = User("Hannah", "Anderson")
+trevor.displayBalance().yield_interest("savings").displayBalance()
+BankAccount.fullchecking()
